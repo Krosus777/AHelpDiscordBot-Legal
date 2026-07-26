@@ -2,6 +2,9 @@
 
 Public legal documents for Corvax AHelp Discord Bot.
 
+- Privacy Policy: `https://krosus777.github.io/AHelpDiscordBot-Legal/`
+- Terms of Service: `https://krosus777.github.io/AHelpDiscordBot-Legal/terms/`
+
 ## Publish with GitHub Pages
 
 1. Create a new **public** GitHub repository named `AHelpDiscordBot-Legal`.
