@@ -14,6 +14,7 @@ This Privacy Policy explains what information the Bot processes, why it is proce
 The Bot may process the following information:
 
 - Discord user IDs, usernames, and display names of staff members who use the Bot;
+- Discord role identifiers associated with a command invoker, used only to verify command access;
 - interaction data intentionally supplied to the Bot's `/ckey`, `/ah`, `/lso`, and `/reply` application commands;
 - Discord server, channel, thread, message, and webhook identifiers needed to route an AHelp conversation;
 - game-related information returned by a connected game server when an authorized staff member uses a command, such as player identifiers, connection status, character names, jobs, roles, or in-game objectives;
