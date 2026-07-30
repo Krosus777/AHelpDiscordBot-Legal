@@ -1,7 +1,7 @@
 # Privacy Policy for Corvax AHelp Discord Bot
 
 **Effective date:** July 26, 2026  
-**Last updated:** July 26, 2026
+**Last updated:** July 30, 2026
 
 ## 1. Overview
 
@@ -14,17 +14,16 @@ This Privacy Policy explains what information the Bot processes, why it is proce
 The Bot may process the following information:
 
 - Discord user IDs, usernames, and display names of staff members who use the Bot;
-- textual message content intentionally posted in configured AHelp channels or AHelp threads;
-- textual arguments supplied to the Bot's `!ckey`, `!ah`, and `!lso` commands;
+- interaction data intentionally supplied to the Bot's `/ckey`, `/ah`, `/lso`, and `/reply` application commands;
 - Discord server, channel, thread, message, and webhook identifiers needed to route an AHelp conversation;
 - game-related information returned by a connected game server when an authorized staff member uses a command, such as player identifiers, connection status, character names, jobs, roles, or in-game objectives;
 - AHelp conversation metadata supplied by connected game servers, including conversation identifiers, player identifiers, character names, server names, round identifiers, and conversation state.
 
-The Bot currently uses only textual message content for its command and AHelp relay functions. It does not download message attachments for these functions.
+The Bot does not request Discord's Message Content Intent, subscribe to message events, or inspect ordinary messages posted in channels or threads. It processes text only when a user explicitly supplies it as an application-command option. It does not download message attachments for these functions.
 
 ## 3. Where the Bot Processes Messages
 
-The Bot processes messages only in Discord channels explicitly configured for AHelp operation and in the AHelp threads associated with those channels. It ignores messages from other bots, direct messages, and messages in unrelated channels.
+The Bot accepts application-command interactions only in Discord channels explicitly configured for AHelp operation and in the AHelp threads associated with those channels. It does not process ordinary channel messages, direct messages, or messages in unrelated channels.
 
 The Bot does not continuously profile Discord users or use message content for advertising or behavioral analytics.
 
@@ -54,7 +53,7 @@ Messages remain stored by Discord according to the settings and retention behavi
 
 ## 7. User Choices and Requests
 
-The Bot does not track messages outside its configured AHelp channels and threads. Users can avoid submitting data to the Bot by not using its commands or posting in an active AHelp thread. There is no per-message opt-out after a message has been intentionally submitted for relay because processing that content is necessary to deliver the AHelp service.
+The Bot does not track ordinary Discord messages. Users can avoid submitting data to the Bot by not invoking its application commands. There is no per-command opt-out after text has been intentionally submitted through `/ah` or `/reply` because processing that text is necessary to deliver the AHelp service.
 
 Users may request access to or deletion of data controlled by the Corvax community by contacting the administrators of the Discord server where the Bot is installed. Please do not include sensitive personal information in a public support request. Some information may be retained when reasonably necessary for security, abuse prevention, record integrity, or legal compliance.
 

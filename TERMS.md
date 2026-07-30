@@ -1,13 +1,13 @@
 # Terms of Service for Corvax AHelp Discord Bot
 
 **Effective date:** July 26, 2026  
-**Last updated:** July 26, 2026
+**Last updated:** July 30, 2026
 
 ## 1. Acceptance of These Terms
 
 These Terms of Service ("Terms") govern access to and use of Corvax AHelp Discord Bot (the "Bot"). The Bot connects administrator-help conversations on participating game servers with designated Discord channels and threads.
 
-By invoking a Bot command, posting in an active AHelp thread, administering a Discord server where the Bot is installed, or otherwise using the Bot, you agree to these Terms. If you do not agree, do not use the Bot.
+By invoking a Bot application command, administering a Discord server where the Bot is installed, or otherwise using the Bot, you agree to these Terms. If you do not agree, do not use the Bot.
 
 ## 2. Eligibility and Authority
 
@@ -51,7 +51,7 @@ Use of the Bot does not guarantee that an AHelp request will receive a response 
 
 ## 7. Privacy
 
-The Bot's processing of information is described in the [Privacy Policy](https://krosus777.github.io/AHelpDiscordBot-Legal/). By using the Bot, you acknowledge that messages intentionally submitted through configured AHelp commands and threads may be transmitted to a connected game server for moderation and support purposes.
+The Bot's processing of information is described in the [Privacy Policy](https://krosus777.github.io/AHelpDiscordBot-Legal/). By using the Bot, you acknowledge that text intentionally submitted through the `/ah` or `/reply` application command may be transmitted to a connected game server for moderation and support purposes.
 
 ## 8. Third-Party Services
 
