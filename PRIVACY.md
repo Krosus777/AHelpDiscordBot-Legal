@@ -54,9 +54,7 @@ Information and aggregate moderation statistics may therefore be accessible to a
 
 The Bot keeps current routing and conversation state temporarily in memory while it is running. The current moderation audit persistently stores service metadata and aggregate results, such as Discord identifiers, timestamps, thread and channel identifiers, author identity, current role classification, whether an AHelp response was counted, and the reason for that classification. Newly processed ordinary message bodies, AHelp transcript text, webhook payloads, embeds, and attachment names are not written to the audit database.
 
-Before August 3, 2026, a legacy version of the moderation audit stored ordinary message content and raw AHelp webhook data, including searchable transcript text, embed data, and some attachment names, in a restricted operational SQLite database, generated operational exports, and backups. New collection of that content has stopped, but historical records may remain while cleanup is pending. AHelp transcript text is not included in the current moderation dashboard or its AHelp export.
-
-The primary moderation database currently has no automatic fixed deletion schedule. Routine SQLite backups are normally rotated after 14 days, although historical content remains in a backup until that backup expires or is separately deleted. Operational records may also be retained longer when reasonably necessary for security, abuse investigation, record integrity, or legal compliance.
+The primary moderation database currently has no automatic fixed deletion schedule. Routine SQLite backups are normally rotated after 14 days. Operational records may be retained longer when reasonably necessary for security, abuse investigation, record integrity, or legal compliance.
 
 Messages remain stored by Discord according to the settings and retention behavior of the relevant Discord server. Messages relayed to a game server may also be retained in restricted administrative or AHelp records for moderation, safety, abuse investigation, and audit purposes. Those records are retained only for as long as reasonably necessary for those purposes or as required by applicable obligations.
 
@@ -66,7 +64,7 @@ Users can avoid submitting command data to the Bot by not invoking its applicati
 
 Users may request access to or deletion of data controlled by the Corvax community by contacting the administrators of the Discord server where the Bot is installed. Please do not include sensitive personal information in a public support request. Some information may be retained when reasonably necessary for security, abuse prevention, record integrity, or legal compliance.
 
-Users can independently delete their Discord messages where Discord permissions allow. Deleting a Discord message may not automatically delete already stored audit metadata, a historical legacy record, or an administrative record that was relayed to a connected game server.
+Users can independently delete their Discord messages where Discord permissions allow. Deleting a Discord message may not automatically delete already stored audit metadata or an administrative record that was relayed to a connected game server.
 
 ## 8. Security
 
