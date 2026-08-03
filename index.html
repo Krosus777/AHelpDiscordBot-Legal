@@ -77,28 +77,30 @@
   <main>
     <h1>Privacy Policy</h1>
     <p><strong>Corvax AHelp Discord Bot</strong></p>
-    <p class="dates">Effective July 26, 2026 · Last updated July 30, 2026</p>
+    <p class="dates">Effective July 26, 2026 · Last updated August 3, 2026</p>
     <p><a href="./terms/">Terms of Service</a></p>
 
     <h2>1. Overview</h2>
-    <p>Corvax AHelp Discord Bot (the “Bot”) is a moderation and player-support integration that connects administrator-help conversations on participating game servers with designated Discord channels and threads.</p>
-    <p>This Privacy Policy explains what information the Bot processes, why it is processed, where it is sent, and the choices available to users.</p>
+    <p>Corvax AHelp Discord Bot and its associated moderation-audit service (together, the “Service”) connect administrator-help conversations on participating game servers with designated Discord channels and threads and produce restricted moderation activity statistics.</p>
+    <p>This Privacy Policy explains what information the Service processes, why it is processed, where it is sent, and the choices available to users.</p>
 
     <h2>2. Information We Process</h2>
-    <p>The Bot may process:</p>
+    <p>The Service may process:</p>
     <ul>
-      <li>Discord user IDs, usernames, and display names of staff members who use the Bot;</li>
-      <li>Discord role identifiers associated with a command invoker, used only to verify command access;</li>
+      <li>Discord user IDs, usernames, and display names of people whose messages appear in configured moderation or AHelp channels and threads;</li>
+      <li>Discord role identifiers and role names used to verify command and dashboard access and to classify current staff roles;</li>
       <li>interaction data intentionally supplied to the Bot’s <code>/ckey</code>, <code>/ah</code>, <code>/lso</code>, and <code>/reply</code> application commands;</li>
       <li>Discord server, channel, thread, message, and webhook identifiers needed to route an AHelp conversation;</li>
+      <li>message timestamps, authorship and thread metadata from configured moderation channels, used to produce moderation activity statistics;</li>
+      <li>AHelp webhook text and embed fields, processed temporarily to attribute staff responses and produce aggregate statistics;</li>
       <li>game-related information returned when authorized staff use a command, such as player identifiers, connection status, character names, jobs, roles, or in-game objectives;</li>
       <li>AHelp conversation metadata supplied by connected game servers, including conversation identifiers, player identifiers, character names, server names, round identifiers, and conversation state.</li>
     </ul>
-    <p>The Bot does not request Discord’s Message Content Intent, subscribe to message events, or inspect ordinary messages posted in channels or threads. It processes text only when a user explicitly supplies it as an application-command option. It does not download message attachments for these functions.</p>
+    <p>The Service does not open a separate Discord Gateway connection for the moderation audit or subscribe that audit to message events. The audit reads configured channels and threads through Discord’s official REST API. Under the current implementation, it discards the body, embeds, and attachment names of newly read ordinary moderation messages before persistence. AHelp webhook text is parsed in memory and then discarded; only the classification result and service metadata are newly persisted.</p>
 
     <h2>3. Where the Bot Processes Messages</h2>
-    <p>The Bot accepts application-command interactions only in Discord channels explicitly configured for AHelp operation and in the AHelp threads associated with those channels. It does not process ordinary channel messages, direct messages, or messages in unrelated channels.</p>
-    <p>The Bot does not continuously profile Discord users or use message content for advertising or behavioral analytics.</p>
+    <p>The Bot accepts application-command interactions only in Discord channels explicitly configured for AHelp operation and in the AHelp threads associated with those channels. The associated audit reads only explicitly configured moderation and AHelp channels and their threads. It does not audit direct messages or unrelated Discord channels.</p>
+    <p>The Service does not continuously profile Discord users or use message content for advertising or behavioral analytics.</p>
 
     <h2>4. How We Use Information</h2>
     <p>Information is processed only as needed to:</p>
@@ -107,25 +109,29 @@
       <li>create, identify, and route AHelp threads;</li>
       <li>relay a staff member’s Discord reply to the corresponding in-game AHelp conversation;</li>
       <li>display game-server information requested by authorized moderation staff;</li>
+      <li>synchronize current staff roles and control access to the restricted moderation dashboard;</li>
+      <li>produce aggregate moderation activity statistics;</li>
       <li>operate, secure, troubleshoot, and prevent abuse of the AHelp service.</li>
     </ul>
     <p>Message content and other user data are not sold and are not used to train machine-learning or artificial-intelligence models.</p>
 
     <h2>5. Sharing and External Processing</h2>
     <p>Text intentionally submitted to an AHelp conversation may be transmitted from Discord to the applicable Corvax game server through its restricted administrator-help API. Necessary Discord identifiers and the staff member’s display name may accompany the message so that the game server can attribute and route it correctly.</p>
-    <p>Information may therefore be accessible to authorized Corvax administrators and to service providers that host Discord, the Bot, or connected game servers. We do not share this information with third parties for advertising or data-broker purposes.</p>
+    <p>Information and aggregate moderation statistics may therefore be accessible to authorized Corvax administrators and to service providers that host Discord, the Service, or connected game servers. We do not share this information with third parties for advertising or data-broker purposes.</p>
 
     <h2>6. Storage and Retention</h2>
-    <p>The Bot does not maintain its own persistent message-content database. It keeps current routing and conversation state temporarily in memory while the Bot is running.</p>
+    <p>The Bot keeps current routing and conversation state temporarily in memory while it is running. The current moderation audit persistently stores service metadata and aggregate results, such as Discord identifiers, timestamps, thread and channel identifiers, author identity, current role classification, whether an AHelp response was counted, and the reason for that classification. Newly processed ordinary message bodies, AHelp transcript text, webhook payloads, embeds, and attachment names are not written to the audit database.</p>
+    <p>Before August 3, 2026, a legacy version of the moderation audit stored ordinary message content and raw AHelp webhook data, including searchable transcript text, embed data, and some attachment names, in a restricted operational SQLite database, generated operational exports, and backups. New collection of that content has stopped, but historical records may remain while cleanup is pending. AHelp transcript text is not included in the current moderation dashboard or its AHelp export.</p>
+    <p>The primary moderation database currently has no automatic fixed deletion schedule. Routine SQLite backups are normally rotated after 14 days, although historical content remains in a backup until that backup expires or is separately deleted. Operational records may also be retained longer when reasonably necessary for security, abuse investigation, record integrity, or legal compliance.</p>
     <p>Messages remain stored by Discord according to the settings and retention behavior of the relevant Discord server. Messages relayed to a game server may also be retained in restricted administrative or AHelp records for moderation, safety, abuse investigation, and audit purposes. Those records are retained only for as long as reasonably necessary for those purposes or as required by applicable obligations.</p>
 
     <h2>7. User Choices and Requests</h2>
-    <p>The Bot does not track ordinary Discord messages. Users can avoid submitting data to the Bot by not invoking its application commands. There is no per-command opt-out after text has been intentionally submitted through <code>/ah</code> or <code>/reply</code> because processing that text is necessary to deliver the AHelp service.</p>
+    <p>Users can avoid submitting command data to the Bot by not invoking its application commands. Participation in configured moderation or AHelp channels may still result in the processing of message metadata and aggregate activity described above. There is no per-command opt-out after text has been intentionally submitted through <code>/ah</code> or <code>/reply</code> because processing that text is necessary to deliver the AHelp service.</p>
     <p>Users may request access to or deletion of data controlled by the Corvax community by contacting the administrators of the Discord server where the Bot is installed. Please do not include sensitive personal information in a public support request. Some information may be retained when reasonably necessary for security, abuse prevention, record integrity, or legal compliance.</p>
-    <p>Users can independently delete their Discord messages where Discord permissions allow. Deleting a Discord message may not automatically delete an administrative record that was already relayed to a connected game server.</p>
+    <p>Users can independently delete their Discord messages where Discord permissions allow. Deleting a Discord message may not automatically delete already stored audit metadata, a historical legacy record, or an administrative record that was relayed to a connected game server.</p>
 
     <h2>8. Security</h2>
-    <p>We use reasonable technical and organizational safeguards intended to restrict access to AHelp data. These include limiting the Bot to configured channels, restricting administrative channels through Discord permissions, and authenticating communication with connected game servers. No method of electronic transmission or storage is completely secure.</p>
+    <p>We use reasonable technical and organizational safeguards intended to restrict access to AHelp and moderation-audit data. These include limiting processing to configured channels, restricting administrative channels and the moderation dashboard, authenticating communication with connected game servers, and limiting access to the operational database and backups. No method of electronic transmission or storage is completely secure.</p>
 
     <h2>9. Children’s Privacy</h2>
     <p>The Bot is not directed to children below the minimum age required to use Discord in their country. We do not knowingly use the Bot to collect personal information from anyone who is not permitted to use Discord.</p>
